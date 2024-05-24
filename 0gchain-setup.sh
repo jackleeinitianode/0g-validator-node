@@ -19,19 +19,13 @@ function remove_0gvalidatornode(){
 
 
 function setup_environment(){
-	MONIKER="jackmonike"
-	read -e -i "$MONIKER" -p "SET MONIKE [jackmonike]: " input
-	MONIKER="${input:-$MONIKER}"
+	read -p "SET MONIKE [jackmonike]: " MONIKE
+	MONIKE=${MONIKE:-jackmonike}
+	read -p "SET WALLET_NAME [jackwallet]: " WALLET_NAME
+	WALLET_NAME=${WALLET_NAME:-jackwallet}
+	read -p "SET RPC_PORT [26657]: " RPC_PORT
+	RPC_PORT=${RPC_PORT:-26657}
 	
-	WALLET_NAME="jackwallet"
-	read -e -i "$WALLET_NAME" -p "SET WALLET_NAME [jackwallet]: " input
-	WALLET_NAME="${input:-$WALLET_NAME}"
-	
-	RPC_PORT="26657"
-	read -e -i "$RPC_PORT" -p "SET RPC_PORT [26657]: " input
-	RPC_PORT="${input:-$RPC_PORT}"
-	
-
 	echo $MONIKER
 	echo $WALLET_NAME
 	echo $RPC_PORT
