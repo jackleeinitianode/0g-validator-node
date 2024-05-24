@@ -43,7 +43,7 @@ function clone_script_0gvalidator(){
 
 
 # Function to install-0g-validator-node
-function install-0g-validator-node() {
+function install_0gvalidatornode() {
     setup_environment
 	install_environment_package
 	clone_script_0gchain
@@ -67,7 +67,7 @@ function menu() {
         read -p "Select function: " choice
         case $choice in
         1)
-            install-0g-validator-node
+            install_0gvalidatornode
             ;;
         2)
             break
@@ -81,3 +81,4 @@ function menu() {
 
 # Call the menu function
 menu
+
