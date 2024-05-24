@@ -115,6 +115,14 @@ function install_0gvalidatornode() {
 	clone_script_0gchain
 }
 
+function remove_0gvalidatornode(){
+	sudo rm /etc/systemd/system/ogd.service
+	sudo systemctl stop ogd
+	sudo systemctl disable ogd
+	sudo systemctl daemon-reload
+}
+
+
 # Main menu function
 function menu() {
     while true; do
@@ -129,6 +137,7 @@ function menu() {
 		echo ""
         echo "1. Install 0g validator node"
         echo "2. Exit"
+		echo "999. Remove 0g validator node"
         echo "##############################################################################"
         read -p "Select function: " choice
         case $choice in
@@ -138,6 +147,9 @@ function menu() {
         2)
             break
             ;;
+		999)
+			remove_0gvalidatornode
+			;;
         *)
             echo "Choice function again"
             ;;
