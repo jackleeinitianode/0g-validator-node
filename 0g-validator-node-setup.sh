@@ -11,7 +11,7 @@ fi
 function setup_environment(){
 	read -p "SET MONIKER NAME: " input_MONIKER
 	read -p "SET WALLET_NAME: " input_WALLET_NAME
-	read -p "SET WALLET_NAME: " input_RPC_PORT
+	read -p "SET RPC_PORT: " input_RPC_PORT
 	echo 'export MONIKER="'$input_MONIKER'"' >> ~/.bash_profile
 	echo 'export CHAIN_ID="zgtendermint_16600-1"' >> ~/.bash_profile
 	echo 'export WALLET_NAME="'input_WALLET_NAME'"' >> ~/.bash_profile
