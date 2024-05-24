@@ -43,7 +43,7 @@ function clone_script_0gvalidator(){
 
 
 # Function to install-0g-validator-node
-function install-0g-storage-node() {
+function install-0g-validator-node() {
     setup_environment
 	install_environment_package
 	clone_script_0gchain
@@ -54,14 +54,14 @@ function menu() {
     while true; do
 		echo "##############################################################################"
 		echo "##############################################################################"
-    echo "########  Twitter: @jleeinitianode                                    ########"
+                echo "########  Twitter: @jleeinitianode                                    ########"
 		echo "########  Buy me a coffee ?                                           ########"
 		echo "########  evm:   0x9b738d96a2654eef7a32ef14d1569bf90e792b39           ########"
 		echo "########  sol:   64Jt9FfP24g4jKkWmFGjBWDaGB79j7VW57jRPpoLwZhR         ########"
 		echo "##############################################################################"
 		echo "##############################################################################"
 		echo ""
-        echo "1. Install 0g chain"
+        echo "1. Install 0g validator node"
         echo "2. Exit"
         echo "##############################################################################"
         read -p "Select function: " choice
