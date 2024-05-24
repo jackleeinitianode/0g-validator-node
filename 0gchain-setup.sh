@@ -19,10 +19,10 @@ function remove_0gvalidatornode(){
 
 
 function setup_environment(){
-	read -p "SET MONIKE [jackmonike]: " inMONIKE
-	inMONIKE=${inMONIKE:-jackmonike}
-	read -p "SET WALLET_NAME [jackwallet]: " inWALLET_NAME
-	inWALLET_NAME=${inWALLET_NAME:-jackwallet}
+	read -p "SET MONIKE [jackhomenode]: " inMONIKE
+	inMONIKE=${inMONIKE:-jackhomenode}
+	read -p "SET WALLET_NAME [jackhomenode]: " inWALLET_NAME
+	inWALLET_NAME=${inWALLET_NAME:-jackhomenode}
 	read -p "SET RPC_PORT [26657]: " inRPC_PORT
 	inRPC_PORT=${inRPC_PORT:-26657}
 	
@@ -91,6 +91,9 @@ function git_clone_install(){
 	sed -i -e 's/address = "127.0.0.1:8545"/address = "0.0.0.0:8545"/' $HOME/.0gchain/config/app.toml
 	sed -i -e 's/ws-address = "127.0.0.1:8546"/ws-address = "0.0.0.0:8546"/' $HOME/.0gchain/config/app.toml
 	
+	
+	sudo tee /etc/systemd/system/ogd.service > /dev/null <<EOF
+
 
 	# Update Peers
 	curl -o $HOME/update_0g_peers.sh https://zerog.snapshot.nodebrand.xyz/update_0g_peers.sh
