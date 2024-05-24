@@ -1,8 +1,7 @@
 Reference
-```
-https://nodebrand.xyz/entry/0G-Labs-Validator-Node-Guide0508-Update
-https://github.com/trusted-point/0g-tools
-```
+1. [nodebrand](https://nodebrand.xyz/entry/0G-Labs-Validator-Node-Guide0508-Update)
+2. [trusted-point](https://github.com/trusted-point/0g-tools)
+
 
 
 To get the script
