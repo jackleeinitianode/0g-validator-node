@@ -31,7 +31,7 @@ function setup_environment(){
 	
 	echo 'export MONIKER="'$input_MONIKER'"' >> ~/.bash_profile
 	echo 'export CHAIN_ID="zgtendermint_16600-1"' >> ~/.bash_profile
-	echo 'export WALLET_NAME="'input_WALLET_NAME'"' >> ~/.bash_profile
+	echo 'export WALLET_NAME="'$input_WALLET_NAME'"' >> ~/.bash_profile
 	echo 'export RPC_PORT="'$input_RPC_PORT'"' >> ~/.bash_profile
 	source $HOME/.bash_profile
 }
@@ -51,15 +51,6 @@ function install_package() {
 	source $HOME/.bash_profile && \
 	go version
 }
-
-
-# Function to install-0g-validator-node
-function install_0gvalidatornode() {
-    setup_environment
-	install_environment_package
-	clone_script_0gvalidator
-}
-
 
 
 # Main menu function
