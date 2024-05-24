@@ -52,11 +52,6 @@ function install_package() {
 	go version
 }
 
-function clone_script_0gvalidator(){
-
-
-}
-
 
 # Function to install-0g-validator-node
 function install_0gvalidatornode() {
