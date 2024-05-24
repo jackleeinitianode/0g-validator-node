@@ -19,23 +19,19 @@ function remove_0gvalidatornode(){
 
 
 function setup_environment(){
-	read -p "SET MONIKER [jackmoniker]: " MONIKER
-	MONIKER=${MONIKER:-jackmoniker}
-	
-	read -p "SET WALLET_NAME [jackwallet]: " WALLET_NAME
-	WALLET_NAME=${WALLET_NAME:-jackwallet}
+	read -e -p "SET MONIKER [jackmoniker]:" -i "jackmoniker" MONIKER
+	echo $MONIKER
+	read -e -p "SET WALLET_NAME [jackwallet]:" -i "jackwallet" WALLET_NAME
+	echo $WALLET_NAME
+	read -e -p "SET RPC_PORT [26657]:" -i "26657" RPC_PORT
+	echo $RPC_PORT
 
-	read -p "SET RPC_PORT [26657]: " RPC_PORT
-	RPC_PORT=${RPC_PORT:-26657}
-	
-	
 	echo 'export MONIKER=$MONIKER' >> ~/.bash_profile
 	echo 'export CHAIN_ID="zgtendermint_16600-1"' >> ~/.bash_profile
 	echo 'export WALLET_NAME=$WALLET_NAME' >> ~/.bash_profile
 	echo 'export RPC_PORT=$RPC_PORT' >> ~/.bash_profile
 	source $HOME/.bash_profile
 }
-
 
 # Function to install environment
 function install_package() {
