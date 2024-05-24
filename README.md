@@ -1,17 +1,18 @@
-Reference
+# reference
 1. [nodebrand](https://nodebrand.xyz/entry/0G-Labs-Validator-Node-Guide0508-Update)
 2. [trusted-point](https://github.com/trusted-point/0g-tools)
 
 
 
-To get the script
+# start here
+get the script
 ```
 curl -o 0gchain-setup.sh https://raw.githubusercontent.com/jackleeinitianode/0g-validator-node/main/0gchain-setup.sh &&  \
 chmod +x 0gchain-setup.sh &&  \
 ./0gchain-setup.sh
 ```
 
-After complete step 1, 2, 3.  create the services file.
+complete step 1, 2, 3. then create the services file.
 ```
 sudo tee /etc/systemd/system/ogd.service > /dev/null <<EOF
 [Unit]
@@ -35,14 +36,14 @@ WantedBy=multi-user.target
 EOF
 ```
 
-Start and enjoy!
+start and enjoy!
 ```
 sudo systemctl daemon-reload && \
 sudo systemctl enable ogd && \
 sudo systemctl restart ogd
 ```
 
-Useful cheat sheet
+# useful cheat sheet
 import wallet
 ```
 0gchaind keys unsafe-import-eth-key $WALLET_NAME <privatekey>
@@ -61,7 +62,7 @@ check block height
 ```
 
 
-Buy me a coffee?
+# buy me a coffee?
 ```
 evm:  0x9b738d96a2654eef7a32ef14d1569bf90e792b39
 sol:  64Jt9FfP24g4jKkWmFGjBWDaGB79j7VW57jRPpoLwZhR
