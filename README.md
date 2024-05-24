@@ -42,6 +42,23 @@ sudo systemctl enable ogd && \
 sudo systemctl restart ogd
 ```
 
+Useful cheat sheet
+import wallet
+```
+0gchaind keys unsafe-import-eth-key $WALLET_NAME <privatekey>
+```
+get wallet evm address
+```
+0gchaind debug addr $(0gchaind keys show $WALLET_NAME -a) | grep 'Address (hex):' | awk -F ': ' '{print "0x" $2}'
+```
+check wallet balance
+```
+0gchaind q bank balances $(0gchaind keys show $WALLET_NAME -a)
+```
+check block height
+```
+0gchaind status | jq '{ latest_block_height: .sync_info.latest_block_height, catching_up: .sync_info.catching_up }'
+```
 
 
 Buy me a coffee?
