@@ -112,7 +112,7 @@ function clone_script_0gvalidator(){
 function install_0gvalidatornode() {
     setup_environment
 	install_environment_package
-	clone_script_0gchain
+	clone_script_0gvalidator
 }
 
 function remove_0gvalidatornode(){
