@@ -19,20 +19,20 @@ function remove_0gvalidatornode(){
 
 
 function setup_environment(){
-	read -p "SET MONIKER [Jack]: " input_MONIKER
-	input_MONIKER=${input_MONIKER:-Jack}
+	read -p "SET MONIKER [Jack]: " MONIKER
+	MONIKER=${MONIKER:-Jack}
 	
-	read -p "SET WALLET_NAME [Jack]: " input_WALLET_NAME
-	input_WALLET_NAME=${input_WALLET_NAME:-Jack}
+	read -p "SET WALLET_NAME [Jack]: " WALLET_NAME
+	WALLET_NAME=${WALLET_NAME:-Jack}
 
-	read -p "SET RPC_PORT [26657]: " input_RPC_PORT
-	input_RPC_PORT=${input_RPC_PORT:-26657}
+	read -p "SET RPC_PORT [26657]: " RPC_PORT
+	RPC_PORT=${RPC_PORT:-26657}
 	
 	
-	echo 'export MONIKER="'$input_MONIKER'"' >> ~/.bash_profile
+	echo 'export MONIKER="'$MONIKER'"' >> ~/.bash_profile
 	echo 'export CHAIN_ID="zgtendermint_16600-1"' >> ~/.bash_profile
-	echo 'export WALLET_NAME="'$input_WALLET_NAME'"' >> ~/.bash_profile
-	echo 'export RPC_PORT="'$input_RPC_PORT'"' >> ~/.bash_profile
+	echo 'export WALLET_NAME="'WALLET_NAME'"' >> ~/.bash_profile
+	echo 'export RPC_PORT="'$RPC_PORT'"' >> ~/.bash_profile
 	source $HOME/.bash_profile
 }
 
@@ -51,6 +51,14 @@ function install_package() {
 	source $HOME/.bash_profile && \
 	go version
 }
+
+# Function to install-0g-validator-node
+function install_0gvalidatornode() {
+    setup_environment
+	install_environment_package
+	clone_script_0gvalidator
+}
+
 
 
 # Main menu function
