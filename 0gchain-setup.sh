@@ -97,28 +97,6 @@ function git_clone_install(){
 	Description=OG Node
 	After=network.target
 
-	[Service]
-	User=root
-	Type=simple
-	ExecStart=$(which 0gchaind) start --json-rpc.api eth,txpool,personal,net,debug,web3 --home $HOME/.0gchain
-	Restart=on-failure
-	RestartSec=10
-	LimitNOFILE=65535
-	Environment="DAEMON_HOME=$HOME/.0gchain"
-	Environment="DAEMON_NAME=0gchaind"
-	Environment="UNSAFE_SKIP_BACKUP=true"
-	Environment="PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:$HOME/.0gchain/cosmovisor/current/bin"
-
-	[Install]
-	WantedBy=multi-user.target
-	EOF
-	sudo systemctl daemon-reload 
-
-	[Install]
-	WantedBy=multi-user.target
-	EOF
-	sudo systemctl daemon-reload 
-
 
 	# Update Peers
 	curl -o $HOME/update_0g_peers.sh https://zerog.snapshot.nodebrand.xyz/update_0g_peers.sh
@@ -129,7 +107,6 @@ function git_clone_install(){
 
 
 	# download snapshot
-	sudo systemctl stop ogd
 	cp $HOME/.0gchain/data/priv_validator_state.json $HOME/.0gchain/priv_validator_state.json.backup
 	0gchaind tendermint unsafe-reset-all --home $HOME/.0gchain --keep-addr-book
 	cd
@@ -140,20 +117,9 @@ function git_clone_install(){
 
 	lz4 -c -d $HOME/snapshotbackup/0g-testnet_latest.tar.lz4 | tar -x -C $HOME/.0gchain
 	mv $HOME/.0gchain/priv_validator_state.json.backup $HOME/.0gchain/data/priv_validator_state.json
-	sudo systemctl restart ogd && sudo journalctl -u ogd -f -o cat
-
-
-	0gchaind status | jq '{ latest_block_height: .sync_info.latest_block_height, catching_up: .sync_info.catching_up }'
+	# sudo systemctl restart ogd && sudo journalctl -u ogd -f -o cat
 
 }
-
-# Function to install-0g-validator-node
-function install_0gvalidatornode() {
-    setup_environment
-	install_environment_package
-	clone_script_0gvalidator
-}
-
 
 
 # Main menu function
