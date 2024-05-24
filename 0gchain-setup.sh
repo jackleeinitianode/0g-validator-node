@@ -91,12 +91,6 @@ function git_clone_install(){
 	sed -i -e 's/address = "127.0.0.1:8545"/address = "0.0.0.0:8545"/' $HOME/.0gchain/config/app.toml
 	sed -i -e 's/ws-address = "127.0.0.1:8546"/ws-address = "0.0.0.0:8546"/' $HOME/.0gchain/config/app.toml
 	
-	
-	sudo tee /etc/systemd/system/ogd.service > /dev/null <<EOF
-	[Unit]
-	Description=OG Node
-	After=network.target
-
 
 	# Update Peers
 	curl -o $HOME/update_0g_peers.sh https://zerog.snapshot.nodebrand.xyz/update_0g_peers.sh
