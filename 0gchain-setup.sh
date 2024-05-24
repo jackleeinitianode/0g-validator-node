@@ -29,10 +29,10 @@ function setup_environment(){
 	RPC_PORT=${RPC_PORT:-26657}
 	
 	
-	echo 'export MONIKER='$MONIKER' >> ~/.bash_profile
+	echo 'export MONIKER=$MONIKER' >> ~/.bash_profile
 	echo 'export CHAIN_ID="zgtendermint_16600-1"' >> ~/.bash_profile
-	echo 'export WALLET_NAME='$WALLET_NAME' >> ~/.bash_profile
-	echo 'export RPC_POR'$RPC_PORT' >> ~/.bash_profile
+	echo 'export WALLET_NAME=$WALLET_NAME' >> ~/.bash_profile
+	echo 'export RPC_PORT=$RPC_PORT' >> ~/.bash_profile
 	source $HOME/.bash_profile
 }
 
